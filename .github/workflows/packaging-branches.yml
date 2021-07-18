@@ -28,7 +28,7 @@ jobs:
         run: echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
         
       - name: Extract branch name for pull-request
-        if: $BRANCH_NAME == 'pull_request'
+        if: github.event_name == 'pull_request'
         shell: bash
         run: echo "BRANCH_NAME=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
 
