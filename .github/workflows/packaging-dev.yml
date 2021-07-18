@@ -7,40 +7,40 @@ on: [push,pull_request]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  on-push:
-    # Check event
-    if: github.event_name == 'push'
+#   on-push:
+#     # Check event
+#     if: github.event_name == 'push'
     
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+#     # The type of runner that the job will run on
+#     runs-on: ubuntu-latest
     
-    env:
-      IMAGE_NAME: development
+#     env:
+#       IMAGE_NAME: development
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+#     # Steps represent a sequence of tasks that will be executed as part of the job
+#     steps:
+#       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#       - uses: actions/checkout@v2
       
-      - name: Extract branch name
-        shell: bash
-        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+#       - name: Extract branch name
+#         shell: bash
+#         run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
 
-      - name: Build an image
-        run: |
-         docker build -f Dockerfile.dev -t $IMAGE_NAME .
-         echo "IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$BRANCH_NAME" >> $GITHUB_ENV
+#       - name: Build an image
+#         run: |
+#          docker build -f Dockerfile.dev -t $IMAGE_NAME .
+#          echo "IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$BRANCH_NAME" >> $GITHUB_ENV
         
-      - name: Login into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+#       - name: Login into registry
+#         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Push
-        run: |
-          docker tag $IMAGE_NAME $IMAGE_ID
-          docker push $IMAGE_ID
+#       - name: Push
+#         run: |
+#           docker tag $IMAGE_NAME $IMAGE_ID
+#           docker push $IMAGE_ID
 
   cleanup:
-    needs: [on-push]
+#     needs: [on-push]
     
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -52,7 +52,7 @@ jobs:
       - name: Remove untagged/old images
         uses: actions/github-script@v3
         with:
-          github-token: ${{ secrets.DELETE_PACKAGES_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const repository = ${{ github.repository }}
             const owner = repository.split('/')[0]
