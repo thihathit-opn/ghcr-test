@@ -1,4 +1,4 @@
-# Workflow process
+# Workflow Process
 
 ### packaging-branches.yml
 
