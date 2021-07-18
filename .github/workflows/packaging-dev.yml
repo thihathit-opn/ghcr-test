@@ -19,22 +19,20 @@ jobs:
       - name: Extract branch name
         if: github.event_name != 'pull_request'
         shell: bash
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
-
-#       - name: Extract branch name
-#         if: github.event_name == 'pull_request'
-#         shell: bash
-#         run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
-
-      - name: Build an image
-        run: bash package.dev.sh
-        
-      - name: Login into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-        
-      - name: Push to registry
         run: |
-          IMAGE_NAME=development
-          IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$BRANCH_NAME
-          docker tag $IMAGE_NAME $IMAGE_ID
-          docker push $IMAGE_ID
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          echo $BRANCH_NAME
+
+#       - name: Build an image
+#         run: |
+#           IMAGE_NAME=development
+#           docker build -f Dockerfile.dev -t $IMAGE_NAME .
+        
+#       - name: Login into registry
+#         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        
+#       - name: Push to registry
+#         run: |
+#           IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$BRANCH_NAME
+#           docker tag $IMAGE_NAME $IMAGE_ID
+#           docker push $IMAGE_ID
