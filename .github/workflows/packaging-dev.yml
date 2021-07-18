@@ -53,12 +53,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: jwalton/gh-find-current-pr@v1
+
+      - name: Extract branch name
+        shell: bash
+        run: echo "PR_ID=${{ github.event.number }}" >> $GITHUB_ENV
 
       - name: Build an image
         run: |
          docker build -f Dockerfile.dev -t $IMAGE_NAME .
-         echo "IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$PR" >> $GITHUB_ENV
+         echo "IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$PR_ID" >> $GITHUB_ENV
         
       - name: Login into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
