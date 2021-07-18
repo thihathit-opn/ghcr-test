@@ -1,3 +1,5 @@
+# Workflow guide
+
 ### packaging-branches.yml
 
 - Triggers on every `push`
