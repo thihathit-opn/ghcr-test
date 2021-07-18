@@ -22,9 +22,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: Extract branch name
+      - name: Extract branch name for push
+        if: github.event_name == 'push'
         shell: bash
         run: echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+        
+      - name: Extract branch name for pull-request
+        if: $BRANCH_NAME == 'pull_request'
+        shell: bash
+        run: echo "BRANCH_NAME=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
 
       - name: Build an image
         run: |
