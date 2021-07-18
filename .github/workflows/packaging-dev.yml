@@ -10,7 +10,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  register:
+  main-branch:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -27,7 +27,7 @@ jobs:
         
       - name: Push to registry
         run: |
-          IMAGE_NAME=simple-ssr:dev
-          IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$IMAGE_NAME
+          IMAGE_NAME=development
+          IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$GITHUB_REF
           docker tag $IMAGE_NAME $IMAGE_ID
           docker push $IMAGE_ID
