@@ -11,4 +11,4 @@
 - Triggers on every `pull_request` actions
 - Pack all the pull-requests as container images.
 - Register them onto ghcr.io, of current repository.
-- These images are tagged as `pr-{PR_ID}`.
+- These images are tagged as `{REPOSITORY}/pr:{PR_ID}`.
