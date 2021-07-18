@@ -3,7 +3,7 @@
 const Hapi = require('@hapi/hapi');
 const Path = require('path');
 
-const server_host = 'localhost';
+const server_host = '0.0.0.0';
 const server_port = 8080;
 
 const init = async () => {
