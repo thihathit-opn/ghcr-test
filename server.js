@@ -6,7 +6,7 @@ const Path = require('path');
 const server_host = '0.0.0.0';
 const server_port = 8080;
 
-console.log('updated');
+console.log('updated')
 
 const init = async () => {
   const server = Hapi.server({
