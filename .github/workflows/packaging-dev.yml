@@ -21,13 +21,11 @@ jobs:
       
       - name: Extract branch name
         shell: bash
-        run: |
-          BRANCH_NAME=${GITHUB_REF#refs/heads/}
-          echo $BRANCH_NAME
+        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
 
       - name: Build an image
         run: |
-          IMAGE_NAME=development
+          echo "IMAGE_NAME=development" >> $GITHUB_ENV
 #          docker build -f Dockerfile.dev -t $IMAGE_NAME .
         
       - name: Login into registry
