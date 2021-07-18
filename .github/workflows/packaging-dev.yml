@@ -15,8 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      IMAGE_NAME: "development"
-      BRANCH_NAME: ${GITHUB_REF#refs/heads/}
+      IMAGE_NAME: development
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -25,18 +24,17 @@ jobs:
       
       - name: Extract branch name
         shell: bash
-        run: echo $BRANCH_NAME
-#         run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
 
-#       - name: Build an image
-#         run: |
-#          docker build -f Dockerfile.dev -t $IMAGE_NAME .
+      - name: Build an image
+        run: |
+         docker build -f Dockerfile.dev -t $IMAGE_NAME .
         
-#       - name: Login into registry
-#         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Login into registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
         
-#       - name: Push to registry
-#         run: |
-#           IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$BRANCH_NAME:latest
-#           docker tag $IMAGE_NAME $IMAGE_ID
-#           docker push $IMAGE_ID
+      - name: Push to registry
+        run: |
+          IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$BRANCH_NAME:latest
+          docker tag $IMAGE_NAME $IMAGE_ID
+          docker push $IMAGE_ID
