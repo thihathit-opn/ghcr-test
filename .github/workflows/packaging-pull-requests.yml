@@ -26,7 +26,7 @@ jobs:
       - name: Build an image
         run: |
          docker build -f Dockerfile.dev -t $IMAGE_NAME .
-         echo "IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/pr-$PR_ID" >> $GITHUB_ENV
+         echo "IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/pr:$PR_ID" >> $GITHUB_ENV
         
       - name: Login into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
