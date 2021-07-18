@@ -1,4 +1,4 @@
-# Workflow guide
+# Workflow Guide
 
 ### packaging-branches.yml
 
