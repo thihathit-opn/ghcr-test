@@ -35,6 +35,6 @@ jobs:
         
       - name: Push to registry
         run: |
-          IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$BRANCH_NAME:latest
-          docker tag $IMAGE_NAME $IMAGE_ID
+          IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$BRANCH_NAME
+          docker tag $IMAGE_NAME $IMAGE_ID:latest
           docker push $IMAGE_ID
