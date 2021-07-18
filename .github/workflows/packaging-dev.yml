@@ -52,7 +52,6 @@ jobs:
       - name: Remove untagged/old images
         uses: actions/github-script@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const repository = ${{ github.repository }}
             const owner = repository.split('/')[0]
