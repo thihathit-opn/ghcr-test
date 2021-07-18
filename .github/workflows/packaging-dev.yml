@@ -29,12 +29,15 @@ jobs:
       - name: Build an image
         run: |
          docker build -f Dockerfile.dev -t $IMAGE_NAME .
+         echo "IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$BRANCH_NAME:latest" >> $GITHUB_ENV
         
       - name: Login into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-        
-      - name: Push to registry
+
+      - name: Remove outdated image
+        run: docker image rm $IMAGE_ID
+
+      - name: Push
         run: |
-          IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$BRANCH_NAME:latest
           docker tag $IMAGE_NAME $IMAGE_ID
           docker push $IMAGE_ID
