@@ -38,3 +38,13 @@ jobs:
         run: |
           docker tag $IMAGE_NAME $IMAGE_ID
           docker push $IMAGE_ID
+
+  cleanup:
+    needs: [on-push]
+    
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Remove untagged/old images
+        run: docker rmi $(docker images -q --filter "dangling=true")
