@@ -24,4 +24,4 @@ jobs:
         run: bash package.dev.sh
         
       - name: Push to registry
-        run: docker push
+        run: docker push simple-ssr:dev
