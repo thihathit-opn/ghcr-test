@@ -3,10 +3,7 @@
 name: Packaging branches
 
 # Controls when the workflow will run
-on:
-  push:
-    branches:
-      - '*'
+on: push
       
 env:
   IMAGE_NAME: branch
