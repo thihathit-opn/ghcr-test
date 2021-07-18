@@ -20,11 +20,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Build an image
-        run: bash package.dev.sh
+#       - name: Build an image
+#         run: bash package.dev.sh
         
-      - name: Login into registry
-        run: docker login ghcr.io -u ${{ github.actor }} --password-stdin
+#       - name: Login into registry
+#         run: docker login ghcr.io -u ${{ github.actor }} --password-stdin
         
       - name: Push to registry
         run: echo "$GITHUB_REPOSITORY"
