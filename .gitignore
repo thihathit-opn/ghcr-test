@@ -5,6 +5,7 @@
 
 # misc
 .DS_Store
+*.dev.sh
 
 npm-debug.log*
 yarn-debug.log*
