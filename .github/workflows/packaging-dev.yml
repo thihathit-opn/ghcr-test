@@ -3,10 +3,7 @@
 name: Development container registry
 
 # Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches: [ master ]
+on: [push,pull_request]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,6 +15,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Extract branch name
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
+
+#       - name: Extract branch name
+#         if: github.event_name == 'pull_request'
+#         shell: bash
+#         run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
 
       - name: Build an image
         run: bash package.dev.sh
@@ -28,6 +35,6 @@ jobs:
       - name: Push to registry
         run: |
           IMAGE_NAME=development
-          IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$GITHUB_REF
+          IMAGE_ID=ghcr.io/$GITHUB_REPOSITORY/$BRANCH_NAME
           docker tag $IMAGE_NAME $IMAGE_ID
           docker push $IMAGE_ID
