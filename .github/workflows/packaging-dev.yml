@@ -34,9 +34,6 @@ jobs:
       - name: Login into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Remove outdated image
-        run: docker image rm $IMAGE_ID
-
       - name: Push
         run: |
           docker tag $IMAGE_NAME $IMAGE_ID
