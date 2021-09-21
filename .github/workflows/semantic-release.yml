@@ -9,10 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: Check direcotry
+       - shell: bash
        - run: ls -a
        
        - name: Check direcotry
        - uses: actions/checkout@v2
+       - shell: bash
        - run: ls -a
     
   publish:
