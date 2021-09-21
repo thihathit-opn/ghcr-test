@@ -5,18 +5,6 @@ on:
     branches:
       - master
 jobs:
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-       - name: Check direcotry
-       - shell: bash
-       - run: ls -a
-       
-       - name: Check direcotry
-       - uses: actions/checkout@v2
-       - shell: bash
-       - run: ls -a
-    
   publish:
     runs-on: ubuntu-latest
     steps:
@@ -25,7 +13,7 @@ jobs:
       - name: Semantic release
         uses: cycjimmy/semantic-release-action@v2
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           dry_run: true
           semantic_version: 17.3.7
