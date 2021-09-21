@@ -5,6 +5,16 @@ on:
     branches:
       - master
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+       - name: Check direcotry
+       - run: ls -a
+       
+       - name: Check direcotry
+       - uses: actions/checkout@v2
+       - run: ls -a
+    
   publish:
     runs-on: ubuntu-latest
     steps:
