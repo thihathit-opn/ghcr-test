@@ -16,9 +16,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           semantic_version: 17.3.7
-#           extra_plugins: |
-#             @semantic-release/commit-analyzer
-#             @semantic-release/release-notes-generator
-#             @semantic-release/changelog
-#             @semantic-release/github
-#             @semantic-release/git
+          extra_plugins: |
+            @semantic-release/commit-analyzer
+            @semantic-release/release-notes-generator
+            @semantic-release/changelog
+            @semantic-release/github
+            @semantic-release/git
