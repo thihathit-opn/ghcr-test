@@ -6,6 +6,6 @@
 
 [![Packaging pull requests](https://github.com/thihathit-opn/ghcr-test/actions/workflows/packaging-pull-requests.yml/badge.svg)](https://github.com/thihathit-opn/ghcr-test/actions/workflows/packaging-pull-requests.yml)
 
-## About
+## About Repository
 
 Workflow testing for ghcr.io. See [workflow readme](https://github.com/thihathit-opn/ghcr-test/tree/master/.github/workflows)
