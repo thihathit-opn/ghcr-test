@@ -1,3 +1,5 @@
+[![CodeQL](https://github.com/thihathit-opn/ghcr-test/actions/workflows/codeql.yml/badge.svg)](https://github.com/thihathit-opn/ghcr-test/actions/workflows/codeql.yml)
+
 [![Semantic release](https://github.com/thihathit-opn/ghcr-test/actions/workflows/semantic-release.yml/badge.svg)](https://github.com/thihathit-opn/ghcr-test/actions/workflows/semantic-release.yml)
 
 [![Packaging branches](https://github.com/thihathit-opn/ghcr-test/actions/workflows/packaging-branches.yml/badge.svg)](https://github.com/thihathit-opn/ghcr-test/actions/workflows/packaging-branches.yml)
