@@ -17,6 +17,6 @@ jobs:
         with:
           semantic_version: 17.3.7
           extra_plugins: |
-            @semantic-release/commit-analyzer
-            @semantic-release/release-notes-generator
-            @semantic-release/github
+            @semantic-release/commit-analyzer@9.0.0
+            @semantic-release/release-notes-generator@10.0.0
+            @semantic-release/github@8.0.0
