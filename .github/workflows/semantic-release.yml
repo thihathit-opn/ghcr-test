@@ -19,4 +19,4 @@ jobs:
           extra_plugins: |
             @semantic-release/commit-analyzer
             @semantic-release/release-notes-generator@10.0.0
-            @semantic-release/github@8.0.0
+            @semantic-release/github
