@@ -2,6 +2,7 @@ module.exports = {
   "dryRun": false,
   "plugins": [
     "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
     "@semantic-release/github"
   ]
 };
