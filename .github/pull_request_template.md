@@ -22,6 +22,6 @@ Summary of the change / Things reviewer should know
 
 <!-- optional -->
 ## How to test
-- How to test this resolved behaviour
+- How to test this resolved behavior
 - Could comes with list
   - Child steps
