@@ -1,6 +1,6 @@
 <!-- optional -->
 ## Description
-Summary of the change / Things reviewer should kno
+Summary of the change / Things reviewer should know
 
 <!-- optional -->
 ### Changes & reasons:
