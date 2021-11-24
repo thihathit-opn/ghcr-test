@@ -6,7 +6,7 @@ module.exports = {
       prerelease: false
     },
     {
-      name: "hotfix/*",
+      name: "hotfix",
       prerelease: true
     }
   ],
