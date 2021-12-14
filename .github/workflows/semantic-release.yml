@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: yarn add conventional-changelog-conventionalcommits
 
       - name: Semantic release
         uses: cycjimmy/semantic-release-action@v2
@@ -22,4 +25,3 @@ jobs:
             @semantic-release/commit-analyzer
             @semantic-release/release-notes-generator
             @semantic-release/github
-            conventional-changelog-conventionalcommits
