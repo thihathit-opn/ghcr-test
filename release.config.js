@@ -13,8 +13,6 @@ module.exports = {
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    "@semantic-release/github",
-    "conventional-changelog-conventionalcommits"
-  ],
-  preset: 'conventionalcommits'
+    "@semantic-release/github"
+  ]
 };
