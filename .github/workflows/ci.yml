@@ -1,8 +1,10 @@
 name: CI
 
-on: push
+on: [push, workflow_call]
 
 jobs:
   message:
-  run:
-    - echo "works"
+   runs-on: ubuntu-latest
+   steps:
+     - name: Reach
+       run: echo "works"
