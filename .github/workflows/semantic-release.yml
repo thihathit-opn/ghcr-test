@@ -7,15 +7,15 @@ on:
       - hotfix
 
 jobs:
-  ci:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/ci.yml@v1
+#   ci:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: ./.github/workflows/ci.yml@v1
     
   publish:
     runs-on: ubuntu-latest
-    needs: ci
+#     needs: ci
     steps:
       - uses: actions/checkout@v2
       
