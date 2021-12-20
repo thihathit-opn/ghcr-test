@@ -10,7 +10,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: .github/workflows/codeql.yml@master
+      - uses: ./.github/workflows/codeql.yml@v1
     
   publish:
     runs-on: ubuntu-latest
