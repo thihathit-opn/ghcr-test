@@ -3,7 +3,7 @@ name: CI
 on: [push, workflow_call]
 
 jobs:
-  message:
+  cancel:
    runs-on: ubuntu-latest
    steps:
       - name: Cancel previous runs
@@ -11,5 +11,8 @@ jobs:
         with:
           access_token: ${{ github.token }}
 
+  message:
+   runs-on: ubuntu-latest
+   steps:
       - name: Reach
         run: echo "works"
