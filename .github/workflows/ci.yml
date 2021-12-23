@@ -6,5 +6,10 @@ jobs:
   message:
    runs-on: ubuntu-latest
    steps:
-     - name: Reach
-       run: echo "works"
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.6.0
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Reach
+        run: echo "works"
