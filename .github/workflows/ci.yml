@@ -12,6 +12,7 @@ jobs:
           access_token: ${{ github.token }}
 
   message:
+   needs: cancel
    runs-on: ubuntu-latest
    steps:
       - name: Reach
