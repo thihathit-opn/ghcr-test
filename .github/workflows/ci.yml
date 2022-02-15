@@ -17,3 +17,11 @@ jobs:
    steps:
       - name: Reach
         run: echo "works"
+
+
+  message_2:
+   needs: message
+   runs-on: ubuntu-latest
+   steps:
+      - name: Reach
+        run: echo "works"
